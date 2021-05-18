@@ -17,13 +17,14 @@ class CreateApiLogsTable extends Migration
             $table->bigIncrements('id');
             $table->string('method');
             $table->string('url');
-            $table->longText('payload');
+            $table->longText('payload')->nullable();
             $table->longText('response');
             $table->string('duration');
             $table->string('controller');
             $table->string('action');
             $table->string('models');
             $table->string('ip');
+            $table->longText('response_data')->nullabe();
             $table->timestamps();
         });
     }
