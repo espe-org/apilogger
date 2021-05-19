@@ -6,6 +6,7 @@
     },
     "name": "espe-org/apilogger",
     "description": "Small laravel package for viewing api logs which can be used in debugging.",
+    "version": "0.1",
     "type": "library",
     "license": "MIT",
     "authors": [
