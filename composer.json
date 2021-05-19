@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "AWT\\": "src/"
+            "EspeOrg\\": "src/"
         }
     },
     "name": "espe-org/apilogger",
@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AWT\\Providers\\ApiLogServiceProvider"
+                "EspeOrg\\Providers\\ApiLogServiceProvider"
             ]
         }
     },
