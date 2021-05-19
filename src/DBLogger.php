@@ -25,8 +25,10 @@ class DBLogger extends AbstractLogger implements ApiLoggerInterface{
     {
         return $this->logger->all();
     }
+
     /**
-     * save logs in database
+     * @param $request
+     * @param $response
      */
     public function saveLogs($request,$response)
     {

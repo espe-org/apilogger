@@ -1,12 +1,12 @@
 {
     "autoload": {
         "psr-4": {
-            "EspeOrg\\": "src/"
+            "AWT\\": "src/"
         }
     },
     "name": "espe-org/apilogger",
     "description": "Small laravel package for viewing api logs which can be used in debugging.",
-    "version": "0.1",
+    "version": "0.1.1",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -18,12 +18,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "EspeOrg\\Providers\\ApiLogServiceProvider"
+                "AWT\\Providers\\ApiLogServiceProvider"
             ]
         }
     },
     "require": {
-        "symfony/var-dumper": "^5.2"
+        "symfony/var-dumper": "^5.2",
+        "laravel/framework": "8.*"
     },
     "minimum-stability": "dev"
 }
