@@ -32,7 +32,7 @@ class ApiLogController extends Controller
         if(count($apilogs)>0){
             $apilogs = $apilogs->map(function($elem, $key) {
                 $elem['response_data'] = json_decode($elem['response_data'], true);
-                $elem['payload'] = json_decode($elem['payload'], true);
+                $elem['payload'] = json_decode(json_decode($elem['payload'], true), true);
                 return $elem;
             });
             $apilogs = $apilogs->sortByDesc('created_at');
