@@ -76,14 +76,14 @@ abstract class AbstractLogger{
         $this->logs['created_at'] = Carbon::now();
         $this->logs['method'] = $request->method();
         $this->logs['url'] = $request->path();
-        $this->logs['payload'] = json_encode($request->getContent());
+        $this->logs['payload'] = $this->getContent();
         $this->logs['response'] = $response->status();
         $this->logs['duration'] = number_format($endTime - LARAVEL_START, 3);
         $this->logs['controller'] = $controller;
         $this->logs['action'] = $action;
         $this->logs['models'] = $models;
         $this->logs['ip'] = $request->ip();
-        $this->logs['response_data'] = json_encode($response->getContent());
+        $this->logs['response_data'] = $response->getContent();
 
         return $this->logs;
     }

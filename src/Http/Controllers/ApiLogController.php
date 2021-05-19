@@ -27,23 +27,28 @@ class ApiLogController extends Controller
      */
     public function index(ApiLoggerInterface $logger)
     {
+        /** @var Collection $apilogs */
         $apilogs = $logger->getLogs();
-        
         if(count($apilogs)>0){
+            $apilogs = $apilogs->map(function($elem, $key) {
+                $elem['response_data'] = json_decode($elem['response_data'], true);
+                $elem['payload'] = json_decode($elem['payload'], true);
+                return $elem;
+            });
             $apilogs = $apilogs->sortByDesc('created_at');
-        }
-        else{
+        } else {
             $apilogs = [];
         }
+        //var_dump($apilogs->toArray());die();
         return view('apilog::index',compact('apilogs'));
-        
+
     }
     public function delete(ApiLoggerInterface $logger)
     {
         $logger->deleteLogs();
 
         return redirect()->back();
-        
+
     }
-    
+
 }

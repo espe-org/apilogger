@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 <body style="font-family: 'Nunito', sans-serif;font-size: 0.9rem;line-height: 1.6">
     <div class="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -48,7 +48,7 @@
                                 @else
                                     <button class="btn btn-{{$log->method=="GET"? "primary" : "success"}} font-weight-bold">{{$log->method}}</button>
                                 @endif
-                                
+
                                 <small class="col-md-2">
                                     <b>{{$log->response}}</b>
                                 </small>
@@ -68,13 +68,17 @@
                                 <p class="col-md-3">
                                     <b>Method :</b>   {{$log->action}}
                                 </p>
-                                <p class="col-md-3 mb-1"><b>Payload : </b>{{$log->payload}}</p>
+                                <p class="col-md-3 mb-1"><b>Payload : </b>                            <?php
+                                    dump($log->payload)
+                                    ?></p>
 
                                 <p class="col-md-6">
                                     <b>Controller :</b> {{$log->controller}}
-                                    
+
                                 </p>
-                            
+                            <?php
+                               dump($log->response_data)
+                            ?>
                         </div>
                     </div>
                     @empty
@@ -82,7 +86,7 @@
                       No Records
                     </h5>
                   @endforelse
-                
+
                 </div>
             </div>
         </main>
