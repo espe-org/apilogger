@@ -3,34 +3,28 @@
 This is a small package that can helps in debugging api logs. It can log 
 request method, url, duration, request payload, which models are retrieved, controller and method. 
 
-![screenshot](screenshot.png)
 
 ##  Installation
 
-1. Install the package via composer
+1. In composer.json
+    "require": {
+        ....
+        "espe-org/apilogger":"*"
+    },
+        "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/espe-org/apilogger"
+        }
+    ]
+    
 
-```bash
-composer require awt/apilogger @dev
-```
-## Usage
-
-1.  Laravel 5.5 and higher uses Package Auto-Discovery, so doesn't require you to manually add
-the ServiceProvider. If you use a lower version of Laravel you must register it in your 
-_app.php_ file:
-
-```bash
-AWT\Providers\ApiLogServiceProvider::class
-```
 
 2. Publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag=config --provider="AWT\Providers\ApiLogServiceProvider"
 ```
-
-The config file is called *apilogs.php*. Currently supported drivers are *db* and *file*
-
-By default the logger will use *file* to log the data. But if you want to use Database for logging, migrate table by using
 
 You can also configure which fields should not be logged like passwords, secrets, etc.
 
@@ -59,13 +53,8 @@ php artisan apilog:clear
 ```
 ## Implement your own log driver
 
-1. Your driver class ***must*** implement ApiLoggerInterface for saving, retrieving and deleting the logs.
-2. Your driver class may extends `AbstractLogger` class which provide helpful methods such as logData and mapArrayToModel.
-3. Substitude in your new class name instead of `db` or `file` as the driver. eg: `\App\Apilogs\CustomLogger::class`
-
-## Security
-
-If you discover any security related issues, please email agwinthant@gmail.com instead of using the issue tracker.
+From copy example/Apilogs to you app
+In apilog.php edit driver to \App\Apilogs\RESTLogger::class
 
 ## License
 
