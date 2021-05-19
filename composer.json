@@ -4,14 +4,14 @@
             "AWT\\": "src/"
         }
     },
-    "name": "awt/apilogger",
+    "name": "espe-org/apilogger",
     "description": "Small laravel package for viewing api logs which can be used in debugging.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "aung win thant",
-            "email": "agwinthant@gmail.com"
+            "name": "asperin2",
+            "email": "asperin2@gmail.com"
         }
     ],
     "extra": {
@@ -20,6 +20,9 @@
                 "AWT\\Providers\\ApiLogServiceProvider"
             ]
         }
+    },
+    "require": {
+        "symfony/var-dumper": "^5.2"
     },
     "minimum-stability": "dev"
 }
