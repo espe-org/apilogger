@@ -18,6 +18,7 @@ class DBLogger extends AbstractLogger implements ApiLoggerInterface{
         parent::__construct();
         $this->logger = $logger;
     }
+
     /**
      * return all models
      */
