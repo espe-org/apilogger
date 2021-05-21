@@ -36,6 +36,15 @@
                         <input type="submit" class="btn btn-danger delete-logs" value="Delete Logs">
                     </div>
                 </form>
+                <?php
+                $page = $_GET['page'] ?? 1;
+                $before_page = $page - 1;
+                $next_page = $page + 1;
+                if ($before_page > 0) {
+                    echo "<a href = '?page=$before_page'>before</a>";
+                }
+                echo "<a href = '?page=$next_page'>next</a>";
+                ?>
             </div>
             <div class="list-group">
                 @forelse ($apilogs as $key => $log)
